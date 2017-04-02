@@ -1,0 +1,16 @@
+version: '3'
+services:
+    proxy:
+        image: nginx:1.10
+        volumes:
+            - ./docker/nginx/conf:/etc/nginx/conf.d/
+            - ./docker/nginx/includes:/etc/nginx/includes/
+        networks:
+            - default
+        ports:
+            - 80:80
+
+networks:
+    default:
+        external:
+            name: test
